@@ -18,11 +18,15 @@ interface ServiceCardProps {
 /**
  * Individual service selection card component
  */
-export function ServiceCard({ service, isSelected, onToggle }: ServiceCardProps) {
+export function ServiceCard({
+    service,
+    isSelected,
+    onToggle,
+}: ServiceCardProps) {
     return (
         <FormItem
             className={cn(
-                "relative overflow-hidden rounded-xl border-2 p-4 transition-all cursor-pointer hover:scale-105",
+                "relative overflow-hidden rounded-xl border-2 p-4 transition-all hover:scale-105",
                 isSelected
                     ? "border-violet-300 bg-white shadow-lg"
                     : "border-gray-200 bg-white/50 hover:border-gray-300"
@@ -32,7 +36,7 @@ export function ServiceCard({ service, isSelected, onToggle }: ServiceCardProps)
                 <Checkbox
                     checked={isSelected}
                     onCheckedChange={onToggle}
-                    className="absolute top-4 right-4"
+                    className="absolute top-4 right-4 cursor-pointer"
                     aria-describedby={`service-${service.id}-description`}
                 />
             </FormControl>

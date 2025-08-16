@@ -30,7 +30,7 @@ export function TermsSection({ control }: TermsSectionProps) {
                             <Checkbox
                                 checked={field.value}
                                 onCheckedChange={field.onChange}
-                                className="mt-1"
+                                className="mt-1 cursor-pointer"
                                 aria-describedby="terms-description"
                             />
                         </FormControl>

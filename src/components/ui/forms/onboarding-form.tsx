@@ -86,19 +86,28 @@ function OnboardingFormContent() {
                                     <div className="font-semibold mb-2">{submission.message}</div>
                                     {submission.submittedData && (
                                         <div className="bg-emerald-100 rounded-lg p-4 mt-3">
-                                            <h4 className="font-semibold mb-2">Submission Summary:</h4>
+                                            <h4 className="font-semibold mb-2">
+                                                Submission Summary:
+                                            </h4>
                                             <div className="grid grid-cols-2 gap-4 text-sm">
                                                 <div>
-                                                    <strong>Name:</strong> {submission.submittedData.fullName}
+                                                    <strong>Name:</strong>{" "}
+                                                    {submission.submittedData.fullName}
                                                 </div>
                                                 <div>
-                                                    <strong>Company:</strong> {submission.submittedData.companyName}
+                                                    <strong>Company:</strong>{" "}
+                                                    {submission.submittedData.companyName}
                                                 </div>
                                                 <div>
-                                                    <strong>Services:</strong> {submission.submittedData.services.join(", ")}
+                                                    <strong>Services:</strong>{" "}
+                                                    {submission.submittedData.services.join(", ")}
                                                 </div>
                                                 <div>
-                                                    <strong>Start Date:</strong> {format(submission.submittedData.projectStartDate, "PPP")}
+                                                    <strong>Start Date:</strong>{" "}
+                                                    {format(
+                                                        submission.submittedData.projectStartDate,
+                                                        "PPP"
+                                                    )}
                                                 </div>
                                             </div>
                                         </div>
@@ -134,7 +143,7 @@ function OnboardingFormContent() {
                                 {/* Submit Button */}
                                 <Button
                                     type="submit"
-                                    className="w-full h-14 text-xl font-bold bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-600 hover:from-violet-700 hover:via-blue-700 hover:to-cyan-700 shadow-2xl hover:shadow-violet-500/25 transition-all duration-300 transform hover:scale-[1.02]"
+                                    className="w-full h-14 text-xl font-bold bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-600 hover:from-violet-700 hover:via-blue-700 hover:to-cyan-700 shadow-2xl hover:shadow-violet-500/25 transition-all duration-300 transform hover:scale-[1.02] cursor-pointer"
                                     disabled={isLoading}
                                 >
                                     {isLoading ? (
@@ -151,7 +160,8 @@ function OnboardingFormContent() {
                                 </Button>
 
                                 <p className="text-center text-sm text-gray-500 mt-4">
-                                    We'll review your information and get back to you within 24 hours with next steps.
+                                    We'll review your information and get back to you within 24
+                                    hours with next steps.
                                 </p>
                             </form>
                         </Form>
@@ -167,11 +177,13 @@ function OnboardingFormContent() {
  */
 export default function OnboardingForm() {
     return (
-        <Suspense fallback={
-            <div className="min-h-screen bg-gradient-to-br from-violet-50 via-blue-50 to-cyan-50 flex items-center justify-center">
-                <Loader2 className="h-8 w-8 animate-spin text-violet-600" />
-            </div>
-        }>
+        <Suspense
+            fallback={
+                <div className="min-h-screen bg-gradient-to-br from-violet-50 via-blue-50 to-cyan-50 flex items-center justify-center">
+                    <Loader2 className="h-8 w-8 animate-spin text-violet-600" />
+                </div>
+            }
+        >
             <OnboardingFormContent />
         </Suspense>
     );
